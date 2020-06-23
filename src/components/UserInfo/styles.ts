@@ -18,11 +18,10 @@ export const Profile = styled.div`
   align-items: center;
 `;
 
-export const Avatar = styled.div`
+export const Avatar = styled.img`
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: var(--gray);
 `;
 
 export const UserData = styled.div`

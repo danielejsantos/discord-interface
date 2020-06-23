@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import ChannelMessage, { Mention } from '../ChannelMessage';
 
@@ -16,9 +16,19 @@ import darthVader from '../../assets/darth-vader.png';
 import phoebeBuffay from '../../assets/phoebe-buffay.png';
 
 const ChannelData: React.FC = () => {
+  const messagesRef = useRef() as React.MutableRefObject<HTMLDivElement>;
+
+  useEffect(() => {
+    const div = messagesRef.current;
+
+    if (div) {
+      div.scrollTop = div.scrollHeight
+    }
+  }, [messagesRef]);
+
   return (
     <Container>
-      <Messages>
+      <Messages ref={messagesRef}>
         <ChannelMessage
           author="Discord"
           date="18/06/2020"
